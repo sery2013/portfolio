@@ -1,21 +1,28 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SERY2013 | Web3 Portfolio</title>
+    <title>SERY2013 | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Montserrat', sans-serif; background-color: #f9f9f9; color: #222; margin: 0; padding: 0; line-height: 1.6; }
-        .container { max-width: 1140px; margin: 0 auto; padding: 40px 20px; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #fcfcfc; color: #222; margin: 0; padding: 0; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
         
         header { text-align: center; margin-bottom: 50px; }
-        .avatar { width: 150px; height: 150px; border-radius: 50%; border: 4px solid #ffd21f; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-        h1 { font-size: 2.5em; margin: 15px 0 5px; color: #111; font-weight: 700; }
-        .subtitle { color: #666; font-size: 1.1em; font-weight: 400; }
+        .avatar { width: 150px; height: 150px; border-radius: 50%; border: 4px solid #ffd21f; box-shadow: 0 8px 20px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        h1 { font-size: 2.2em; margin: 0; color: #111; font-weight: 700; }
+        
+        .about-section { text-align: center; max-width: 800px; margin: 0 auto 40px; }
+        .about-section h2 { font-size: 1.2em; color: #555; margin-bottom: 15px; font-weight: 600; }
+        .about-text { font-size: 1em; color: #444; margin-bottom: 20px; }
+        
+        .spec-list { list-style: none; padding: 0; display: inline-block; text-align: left; }
+        .spec-list li { margin-bottom: 8px; position: relative; padding-left: 20px; }
+        .spec-list li::before { content: "•"; color: #ffd21f; font-weight: bold; position: absolute; left: 0; }
 
-        .section-title { font-size: 1.6em; margin: 50px 0 30px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-left: 6px solid #ffd21f; padding-left: 15px; }
+        .section-title { font-size: 1.5em; margin: 50px 0 25px; font-weight: 700; text-transform: uppercase; border-left: 5px solid #ffd21f; padding-left: 15px; }
 
         /* Сетка проектов — 4 колонки */
         .projects-grid { 
@@ -25,17 +32,17 @@
         }
         .project-card { 
             background: #fff; 
-            padding: 25px 15px; 
+            padding: 25px 10px; 
             border-radius: 12px; 
             text-align: center; 
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            border: 1px solid #eaeaea;
-            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            border: 1px solid #efefef;
+            transition: 0.3s;
         }
-        .project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-color: #ffd21f; }
-        .project-card img { width: 65px; height: 65px; object-fit: contain; margin-bottom: 12px; }
-        .project-card h3 { margin: 5px 0; font-size: 1.05em; color: #333; font-weight: 600; }
-        .role { font-size: 0.75em; color: #999; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .project-card:hover { transform: translateY(-5px); border-color: #ffd21f; box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+        .project-card img { width: 60px; height: 60px; object-fit: contain; margin-bottom: 12px; }
+        .project-card h3 { margin: 5px 0; font-size: 1em; font-weight: 700; }
+        .role { font-size: 0.75em; color: #999; text-transform: uppercase; font-weight: 600; }
 
         /* Сетка работ — 2 колонки */
         .works-grid { 
@@ -43,42 +50,22 @@
             grid-template-columns: 1fr 1fr; 
             gap: 20px; 
         }
-        .work-item img { 
-            width: 100%; 
-            border-radius: 12px; 
-            display: block;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: 0.3s;
-        }
-        .work-item img:hover { filter: brightness(1.05); }
+        .work-item img { width: 100%; border-radius: 12px; display: block; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
 
-        /* Секция Контактов */
+        /* Контакты */
         .contacts-section { 
             background: #111; 
             color: #fff; 
-            padding: 60px 40px; 
+            padding: 50px 20px; 
             border-radius: 20px; 
-            margin-top: 80px; 
+            margin-top: 60px; 
             text-align: center; 
         }
-        .social-icons { 
-            display: flex; 
-            justify-content: center; 
-            gap: 40px; 
-            margin-bottom: 40px; 
-        }
-        .social-icons a { 
-            color: #fff; 
-            font-size: 3em; 
-            transition: all 0.3s ease; 
-            text-decoration: none;
-        }
-        .social-icons a:hover { 
-            color: #ffd21f; 
-            transform: scale(1.2); 
-        }
+        .social-icons { display: flex; justify-content: center; gap: 35px; margin: 30px 0; }
+        .social-icons a { color: #fff; font-size: 2.8em; transition: 0.3s; text-decoration: none; }
+        .social-icons a:hover { color: #ffd21f; transform: scale(1.1); }
         
-        .discord-info { margin-top: 20px; }
+        .discord-link { text-decoration: none; color: inherit; }
         .discord-box { 
             background: #222; 
             padding: 12px 25px; 
@@ -87,18 +74,17 @@
             align-items: center;
             font-family: monospace;
             border: 1px solid #333;
-            font-size: 1.2em;
-            letter-spacing: 1px;
-            color: #ddd;
+            font-size: 1.1em;
+            color: #eee;
+            transition: 0.3s;
         }
+        .discord-link:hover .discord-box { background: #5865F2; border-color: #5865F2; color: #fff; }
 
-        /* Адаптивность */
-        @media (max-width: 1000px) { .projects-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 900px) { .projects-grid { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 768px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 600px) { 
             .projects-grid { grid-template-columns: 1fr; } 
             .works-grid { grid-template-columns: 1fr; }
-            .social-icons { gap: 20px; }
         }
     </style>
 </head>
@@ -106,61 +92,64 @@
 
 <div class="container">
     <header>
-        <img src="./works/avatar.gif" alt="SERY2013 Avatar" class="avatar">
-        <h1>SERY2013</h1>
-        <p class="subtitle">Web3 Ambassador | Content Creator | Digital Artist</p>
+        <img src="./works/avatar.gif" alt="SERY2013" class="avatar">
+        <h1>Hi, I am SERY2013!</h1>
     </header>
 
-    <h2 class="section-title">Experience</h2>
+    <div class="about-section">
+        <h2>About me:</h2>
+        <p class="about-text">
+            <strong>SERY2013 | Web3 Ambassador | Content Creator</strong><br>
+            For over a year, I have been creating high-quality content and managing communities on Discord. I am currently managing more than 10 active projects, ensuring their growth and audience engagement. My experience is backed by real cases in my portfolio.
+        </p>
+        <h2>Specialization:</h2>
+        <ul class="spec-list">
+            <li>Discord server management</li>
+            <li>Content creation for Web3 projects</li>
+            <li>Ambassadorship and community management</li>
+        </ul>
+        <p style="margin-top:20px; font-weight: 700;">Stability and results are my top priorities.</p>
+    </div>
+
+    <h2 class="section-title">Projects</h2>
     <div class="projects-grid">
         <div class="project-card"><img src="./logo/kash.png"><h3>Kash Bot</h3><p class="role">OG KASHER</p></div>
         <div class="project-card"><img src="./logo/opengradient.png"><h3>OpenGradient</h3><p class="role">Creator</p></div>
         <div class="project-card"><img src="./logo/ritual.png"><h3>Ritual</h3><p class="role">Ritty Bitty</p></div>
-        <div class="project-card"><img src="./logo/rialo.png"><h3>Rialo</h3><p class="role">Club Member</p></div>
+        <div class="project-card"><img src="./logo/rialo.png"><h3>Rialo</h3><p class="role">Member</p></div>
         
         <div class="project-card"><img src="./logo/fermat.png"><h3>Fermat</h3><p class="role">Contributor</p></div>
         <div class="project-card"><img src="./logo/neura.png"><h3>Neura</h3><p class="role">Member</p></div>
         <div class="project-card"><img src="./logo/oro.png"><h3>Oro</h3><p class="role">Contributor</p></div>
         <div class="project-card"><img src="./logo/bulk.png"><h3>Bulk Trade</h3><p class="role">Partner</p></div>
         
-        <div class="project-card"><img src="./logo/kash_app.png"><h3>Kash App</h3><p class="role">Ambassador</p></div>
-        <div class="project-card"><img src="./logo/p7.png"><h3>Project 7</h3><p class="role">Role</p></div>
-        <div class="project-card"><img src="./logo/p8.png"><h3>Project 8</h3><p class="role">Role</p></div>
         <div class="project-card"><img src="./logo/p9.png"><h3>Project 9</h3><p class="role">Role</p></div>
+        <div class="project-card"><img src="./logo/p10.png"><h3>Project 10</h3><p class="role">Role</p></div>
+        <div class="project-card"><img src="./logo/p11.png"><h3>Project 11</h3><p class="role">Role</p></div>
+        <div class="project-card"><img src="./logo/p12.png"><h3>Project 12</h3><p class="role">Role</p></div>
     </div>
 
-    <h2 class="section-title">Visual Portfolio</h2>
+    <h2 class="section-title">Portfolio Works</h2>
     <div class="works-grid">
-        <div class="work-item"><img src="./works/work1.gif" alt="Design 1"></div>
-        <div class="work-item"><img src="./works/work2.gif" alt="Design 2"></div>
-        <div class="work-item"><img src="./works/work3.gif" alt="Design 3"></div>
-        <div class="work-item"><img src="./works/work4.gif" alt="Design 4"></div>
+        <div class="work-item"><img src="./works/work1.gif"></div>
+        <div class="work-item"><img src="./works/work2.gif"></div>
+        <div class="work-item"><img src="./works/work3.gif"></div>
+        <div class="work-item"><img src="./works/work4.gif"></div>
     </div>
 
     <div class="contacts-section">
-        <h2 style="color: #ffd21f; margin-bottom: 30px;">Contacts</h2>
-        
+        <h2 style="color: #ffd21f;">Contacts</h2>
         <div class="social-icons">
-            <a href="mailto:blackbiznft@gmail.com" title="Email Me">
-                <i class="fas fa-envelope"></i>
-            </a>
-            
-            <a href="https://x.com/kaye_moni" target="_blank" title="Follow on X">
-                <i class="fab fa-x-twitter"></i>
-            </a>
-            
-            <a href="https://github.com/sery2013" target="_blank" title="My GitHub">
-                <i class="fab fa-github"></i>
-            </a>
+            <a href="mailto:blackbiznft@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://x.com/kaye_moni" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://github.com/sery2013" target="_blank"><i class="fab fa-github"></i></a>
         </div>
-
-        <div class="discord-info">
-            <p style="margin-bottom: 10px; opacity: 0.6; font-size: 0.8em; text-transform: uppercase;">Discord ID</p>
+        
+        <a href="https://discordapp.com/users/829735798173728789" target="_blank" class="discord-link">
             <div class="discord-box">
-                <i class="fab fa-discord" style="color: #5865F2; margin-right: 15px;"></i> 
-                829735798173728789
+                <i class="fab fa-discord" style="color: #5865F2; margin-right: 12px;"></i> ID: 829735798173728789
             </div>
-        </div>
+        </a>
     </div>
 </div>
 
