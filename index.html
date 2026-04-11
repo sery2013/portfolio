@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* === ДИНАМИЧЕСКИЙ ГРАДИЕНТНЫЙ ФОН === */
+        /* === ХОЛОДНЫЙ ТЕХНОЛОГИЧНЫЙ ГРАДИЕНТ (БЕЗ РОЗОВОГО) === */
         body { 
             font-family: 'Montserrat', sans-serif; 
             margin: 0; padding: 0; line-height: 1.6; min-height: 100vh;
-            background: linear-gradient(-45deg, #f1f2f6, #c3cfe2, #fff1eb, #e6e9f0);
+            /* Заменили розовый на глубокий голубой и стальной */
+            background: linear-gradient(-45deg, #e0eafc, #cfdef3, #e6e9f0, #d9e2f1);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             color: #2d3436; 
@@ -31,7 +32,7 @@
             width: 150px; height: 150px; 
             border-radius: 50%; 
             border: 5px solid rgba(255, 255, 255, 0.9); 
-            box-shadow: 0 10px 25px rgba(88, 101, 242, 0.15);
+            box-shadow: 0 10px 25px rgba(0, 163, 255, 0.1); /* Голубое свечение */
             margin-bottom: 20px;
             object-fit: cover;
             transition: 0.3s;
@@ -39,15 +40,16 @@
         
         h1 { font-size: 2.8em; margin: 0; color: #1a1a1a; font-weight: 800; letter-spacing: -1px; }
         
-        /* === ОБЩИЙ КЛАСС ГРАДИЕНТНОГО СТЕКЛА === */
+        /* === ЧИСТОЕ "ЛЕДЯНОЕ" СТЕКЛО === */
         .glass-gradient {
-            background: rgba(255, 255, 255, 0.45); 
+            background: rgba(255, 255, 255, 0.4); 
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            background-image: radial-gradient(at 0% 0%, rgba(255, 210, 31, 0.08) 0px, transparent 50%),
-                              radial-gradient(at 100% 100%, rgba(88, 101, 242, 0.08) 0px, transparent 50%);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            /* Убрали розовые отсветы, оставили только золото и голубой */
+            background-image: radial-gradient(at 0% 0%, rgba(255, 210, 31, 0.05) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(0, 163, 255, 0.05) 0px, transparent 50%);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
@@ -74,7 +76,7 @@
             display: flex;
             align-items: center;
         }
-        .section-title::after { content: ""; flex: 1; height: 3px; background: #ffd21f; margin-left: 20px; border-radius: 2px; }
+        .section-title::after { content: ""; flex: 1; height: 3px; background: linear-gradient(90deg, #ffd21f, transparent); margin-left: 20px; border-radius: 2px; }
 
         .projects-grid { 
             display: grid; 
@@ -91,7 +93,7 @@
             transform: translateY(-7px); 
             background: rgba(255, 255, 255, 0.7);
             border-color: #ffd21f; 
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 30px rgba(0, 163, 255, 0.1);
         }
         .project-card img { width: 65px; height: 65px; object-fit: contain; margin-bottom: 15px; }
         .project-card h3 { margin: 10px 0 8px; font-size: 1.1em; font-weight: 700; color: #1a1a1a; }
