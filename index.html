@@ -3,89 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SERY2013 | Portfolio</title>
+    <title>SERY2013 | Web3 Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Montserrat', sans-serif; background-color: #fcfcfc; color: #222; margin: 0; padding: 0; line-height: 1.6; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        /* --- Основные стили и шикарный градиентный фон --- */
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background: radial-gradient(circle at center, #1a1a2e 0%, #0d0d15 100%);
+            color: #fff; 
+            margin: 0; 
+            padding: 0; 
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Добавляем легкое свечение на фон */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -10%; left: -10%;
+            width: 120%; height: 120%;
+            background: radial-gradient(circle at 10% 10%, rgba(255, 210, 31, 0.05) 0%, rgba(0,0,0,0) 50%),
+                        radial-gradient(circle at 90% 90%, rgba(88, 101, 242, 0.05) 0%, rgba(0,0,0,0) 50%);
+            z-index: -1;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
         
-        header { text-align: center; margin-bottom: 30px; }
-        .avatar { width: 150px; height: 150px; border-radius: 50%; border: 4px solid #ffd21f; box-shadow: 0 8px 20px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        h1 { font-size: 2.2em; margin: 0; color: #111; font-weight: 700; }
+        /* --- Шапка --- */
+        header { text-align: center; margin-bottom: 60px; position: relative; }
+        .avatar { 
+            width: 160px; height: 160px; 
+            border-radius: 50%; 
+            border: 4px solid #ffd21f; 
+            box-shadow: 0 0 30px rgba(255, 210, 31, 0.3); 
+            margin-bottom: 25px;
+            transition: 0.5s ease;
+        }
+        .avatar:hover { transform: scale(1.05) rotate(5deg); box-shadow: 0 0 50px rgba(255, 210, 31, 0.5); }
         
-        .about-section { text-align: center; max-width: 850px; margin: 0 auto 50px; background: #fff; padding: 30px; border-radius: 20px; border: 1px solid #eee; }
-        .about-section h2 { font-size: 1.3em; color: #111; margin-bottom: 15px; font-weight: 700; text-transform: uppercase; }
-        .about-text { font-size: 1.05em; color: #444; margin-bottom: 25px; text-align: center; }
+        h1 { 
+            font-size: 3em; 
+            margin: 0; 
+            font-weight: 800; 
+            letter-spacing: -2px;
+            background: linear-gradient(90deg, #fff 0%, #ffd21f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         
-        .spec-container { display: inline-block; text-align: left; margin-bottom: 20px; }
+        /* --- Блок "About Me" в стиле Glassmorphism --- */
+        .about-section { 
+            max-width: 900px; 
+            margin: 0 auto 60px; 
+            background: rgba(255, 255, 255, 0.03); 
+            padding: 40px; 
+            border-radius: 24px; 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .about-section h2 { font-size: 1.4em; color: #ffd21f; margin-bottom: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .about-text { font-size: 1.1em; color: rgba(255,255,255,0.8); margin-bottom: 30px; text-align: center; }
+        .about-text strong { color: #fff; font-weight: 700; }
+        
+        .spec-container { display: inline-block; text-align: left; margin-bottom: 25px; }
         .spec-list { list-style: none; padding: 0; margin: 0; }
-        .spec-list li { margin-bottom: 10px; font-size: 1.05em; position: relative; padding-left: 25px; }
-        .spec-list li::before { content: "•"; color: #ffd21f; font-size: 1.5em; position: absolute; left: 0; top: -5px; }
+        .spec-list li { margin-bottom: 12px; font-size: 1.1em; position: relative; padding-left: 30px; color: rgba(255,255,255,0.9); }
+        /* Красивые кастомные маркеры */
+        .spec-list li::before { 
+            content: "\f00c"; 
+            font-family: "Font Awesome 6 Free"; 
+            font-weight: 900; 
+            color: #ffd21f; 
+            position: absolute; 
+            left: 0; top: 2px; 
+            font-size: 0.9em;
+        }
 
-        .section-title { font-size: 1.5em; margin: 50px 0 25px; font-weight: 700; text-transform: uppercase; border-left: 5px solid #ffd21f; padding-left: 15px; }
+        .highlight-p { margin-top:30px; font-weight: 700; color: #fff; font-size: 1.2em; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Сетка проектов — 4 колонки */
+        /* --- Заголовки секций с неоновым подчеркиванием --- */
+        .section-title { 
+            font-size: 1.8em; 
+            margin: 60px 0 35px; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px; left: 0;
+            width: 100%; height: 4px;
+            background: linear-gradient(90deg, #ffd21f, rgba(255,210,31,0));
+            border-radius: 2px;
+            box-shadow: 0 0 10px #ffd21f;
+        }
+
+        /* --- Сетка проектов (4 колонки) - Премиум вид --- */
         .projects-grid { 
             display: grid; 
             grid-template-columns: repeat(4, 1fr); 
-            gap: 15px; 
+            gap: 20px; 
         }
         .project-card { 
-            background: #fff; 
-            padding: 25px 10px; 
-            border-radius: 12px; 
+            background: rgba(255, 255, 255, 0.02); 
+            padding: 30px 15px; 
+            border-radius: 16px; 
             text-align: center; 
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-            border: 1px solid #efefef;
-            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
         }
-        .project-card:hover { transform: translateY(-5px); border-color: #ffd21f; box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
-        .project-card img { width: 65px; height: 65px; object-fit: contain; margin-bottom: 12px; }
-        .project-card h3 { margin: 5px 0; font-size: 1em; font-weight: 700; }
-        .role { font-size: 0.75em; color: #999; text-transform: uppercase; font-weight: 600; }
+        /* Эффект наведения со свечением */
+        .project-card:hover { 
+            transform: translateY(-10px); 
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 210, 31, 0.3); 
+            box-shadow: 0 15px 40px rgba(255, 210, 31, 0.15); 
+        }
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            transition: 0.5s;
+        }
+        .project-card:hover::before { left: 100%; }
 
-        /* Сетка работ — 2 колонки */
+        .project-card img { width: 70px; height: 70px; object-fit: contain; margin-bottom: 15px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.1)); }
+        .project-card h3 { margin: 10px 0 5px; font-size: 1.1em; font-weight: 700; color: #fff; }
+        
+        /* Роли в тонкой рамке (стиль из скрина) */
+        .role { 
+            font-size: 0.75em; 
+            color: #ffd21f; 
+            text-transform: uppercase; 
+            font-weight: 600; 
+            border: 1px solid rgba(255, 210, 31, 0.3); 
+            padding: 4px 10px; 
+            border-radius: 6px; 
+            display: inline-block;
+            margin-top: 8px;
+            letter-spacing: 1px;
+            background: rgba(255, 210, 31, 0.05);
+        }
+
+        /* --- Сетка работ (2 колонки) --- */
         .works-grid { 
             display: grid; 
             grid-template-columns: 1fr 1fr; 
-            gap: 20px; 
+            gap: 25px; 
         }
-        .work-item img { width: 100%; border-radius: 12px; display: block; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .work-item { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: 0.3s; }
+        .work-item:hover { transform: scale(1.02); box-shadow: 0 15px 50px rgba(0,0,0,0.5); border-color: rgba(255,210,31,0.2); }
+        .work-item img { width: 100%; display: block; transition: 0.5s ease; }
+        .work-item:hover img { transform: scale(1.05); }
 
-        /* Контакты */
+        /* --- Контакты - Футуристичный вид --- */
         .contacts-section { 
-            background: #111; 
-            color: #fff; 
+            background: rgba(0, 0, 0, 0.3); 
             padding: 60px 20px; 
-            border-radius: 20px; 
-            margin-top: 60px; 
+            border-radius: 24px; 
+            margin-top: 80px; 
             text-align: center; 
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
         }
-        .social-icons { display: flex; justify-content: center; gap: 40px; margin: 30px 0; }
-        .social-icons a { color: #fff; font-size: 3em; transition: 0.3s; text-decoration: none; }
-        .social-icons a:hover { color: #ffd21f; transform: scale(1.1); }
+        .contacts-section h2 { font-size: 2em; color: #fff; font-weight: 800; text-transform: uppercase; margin-bottom: 40px; }
         
+        .social-icons { display: flex; justify-content: center; gap: 40px; margin: 30px 0 50px; }
+        .social-icons a { color: rgba(255,255,255,0.6); font-size: 3.2em; transition: 0.3s ease; text-decoration: none; position: relative; }
+        .social-icons a:hover { color: #ffd21f; transform: translateY(-5px); filter: drop-shadow(0 0 15px #ffd21f); }
+        
+        /* Кликабельный Дискорд */
         .discord-link { text-decoration: none; display: inline-block; margin-top: 10px; }
         .discord-box { 
-            background: #222; 
-            padding: 15px 30px; 
+            background: rgba(88, 101, 242, 0.1); 
+            padding: 18px 35px; 
             border-radius: 50px; 
             display: flex; 
             align-items: center;
             font-family: monospace;
-            border: 1px solid #333;
-            font-size: 1.2em;
-            color: #eee;
+            border: 1px solid rgba(88, 101, 242, 0.2);
+            font-size: 1.3em;
+            color: #fff;
             transition: 0.3s;
+            box-shadow: 0 0 15px rgba(88, 101, 242, 0.1);
         }
-        .discord-link:hover .discord-box { background: #5865F2; border-color: #5865F2; color: #fff; transform: translateY(-3px); }
+        .discord-link:hover .discord-box { 
+            background: rgba(88, 101, 242, 0.2); 
+            border-color: rgba(88, 101, 242, 0.5); 
+            transform: translateY(-3px); 
+            box-shadow: 0 0 30px rgba(88, 101, 242, 0.3); 
+        }
 
-        @media (max-width: 900px) { .projects-grid { grid-template-columns: repeat(3, 1fr); } }
-        @media (max-width: 768px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+        /* --- Адаптивность --- */
+        @media (max-width: 1000px) { .projects-grid { grid-template-columns: repeat(3, 1fr); } h1 { font-size: 2.5em; } }
+        @media (max-width: 768px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } .works-grid { grid-template-columns: 1fr; } .container { padding: 40px 15px; } }
         @media (max-width: 600px) { 
             .projects-grid { grid-template-columns: 1fr; } 
-            .works-grid { grid-template-columns: 1fr; }
+            .social-icons { gap: 25px; font-size: 0.8em; }
+            .discord-box { font-size: 1em; padding: 12px 20px; }
+            .about-section { padding: 25px; }
         }
     </style>
 </head>
@@ -94,11 +220,11 @@
 <div class="container">
     <header>
         <img src="./works/avatar.gif" alt="SERY2013" class="avatar">
-        <h1>Hi, I am SERY2013!</h1>
+        <h1>SERY2013</h1>
     </header>
 
     <div class="about-section">
-        <h2>About me:</h2>
+        <h2>About me</h2>
         <p class="about-text">
             <strong>SERY2013 | Web3 Ambassador | Content Creator</strong><br><br>
             For over a year, I have been creating high-quality content and managing communities on Discord. 
@@ -106,7 +232,7 @@
             My experience is backed by real cases in my portfolio.
         </p>
         
-        <h2>Specialization:</h2>
+        <h2>Specialization</h2>
         <div class="spec-container">
             <ul class="spec-list">
                 <li>Discord server management</li>
@@ -115,12 +241,12 @@
             </ul>
         </div>
         
-        <p style="margin-top:20px; font-weight: 700; color: #111; font-size: 1.1em;">
+        <p class="highlight-p">
             Stability and results are my top priorities.
         </p>
     </div>
 
-    <h2 class="section-title">Projects</h2>
+    <center><h2 class="section-title">Experience</h2></center>
     <div class="projects-grid">
         <div class="project-card"><img src="./logo/kash.png"><h3>Kash Bot</h3><p class="role">OG KASHER</p></div>
         <div class="project-card"><img src="./logo/opengradient.png"><h3>OpenGradient</h3><p class="role">Creator</p></div>
@@ -138,7 +264,7 @@
         <div class="project-card"><img src="./logo/p12.png"><h3>Project 12</h3><p class="role">Role</p></div>
     </div>
 
-    <h2 class="section-title">Portfolio Works</h2>
+    <center><h2 class="section-title">Works</h2></center>
     <div class="works-grid">
         <div class="work-item"><img src="./works/work1.gif"></div>
         <div class="work-item"><img src="./works/work2.gif"></div>
@@ -147,7 +273,7 @@
     </div>
 
     <div class="contacts-section">
-        <h2 style="color: #ffd21f; margin-bottom: 30px;">Contacts</h2>
+        <h2>Connect</h2>
         <div class="social-icons">
             <a href="mailto:blackbiznft@gmail.com" title="Send Email"><i class="fas fa-envelope"></i></a>
             <a href="https://x.com/kaye_moni" target="_blank" title="My X (Twitter)"><i class="fab fa-x-twitter"></i></a>
@@ -156,7 +282,7 @@
         
         <a href="https://discordapp.com/users/829735798173728789" target="_blank" class="discord-link" title="My Discord Profile">
             <div class="discord-box">
-                <i class="fab fa-discord" style="color: #5865F2; margin-right: 15px; font-size: 1.2em;"></i> 
+                <i class="fab fa-discord" style="color: #5865F2; margin-right: 18px; font-size: 1.3em;"></i> 
                 ID: 829735798173728789
             </div>
         </a>
