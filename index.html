@@ -10,17 +10,18 @@
         body { font-family: 'Montserrat', sans-serif; background-color: #fcfcfc; color: #222; margin: 0; padding: 0; line-height: 1.6; }
         .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
         
-        header { text-align: center; margin-bottom: 50px; }
+        header { text-align: center; margin-bottom: 30px; }
         .avatar { width: 150px; height: 150px; border-radius: 50%; border: 4px solid #ffd21f; box-shadow: 0 8px 20px rgba(0,0,0,0.1); margin-bottom: 20px; }
         h1 { font-size: 2.2em; margin: 0; color: #111; font-weight: 700; }
         
-        .about-section { text-align: center; max-width: 800px; margin: 0 auto 40px; }
-        .about-section h2 { font-size: 1.2em; color: #555; margin-bottom: 15px; font-weight: 600; }
-        .about-text { font-size: 1em; color: #444; margin-bottom: 20px; }
+        .about-section { text-align: center; max-width: 850px; margin: 0 auto 50px; background: #fff; padding: 30px; border-radius: 20px; border: 1px solid #eee; }
+        .about-section h2 { font-size: 1.3em; color: #111; margin-bottom: 15px; font-weight: 700; text-transform: uppercase; }
+        .about-text { font-size: 1.05em; color: #444; margin-bottom: 25px; text-align: center; }
         
-        .spec-list { list-style: none; padding: 0; display: inline-block; text-align: left; }
-        .spec-list li { margin-bottom: 8px; position: relative; padding-left: 20px; }
-        .spec-list li::before { content: "•"; color: #ffd21f; font-weight: bold; position: absolute; left: 0; }
+        .spec-container { display: inline-block; text-align: left; margin-bottom: 20px; }
+        .spec-list { list-style: none; padding: 0; margin: 0; }
+        .spec-list li { margin-bottom: 10px; font-size: 1.05em; position: relative; padding-left: 25px; }
+        .spec-list li::before { content: "•"; color: #ffd21f; font-size: 1.5em; position: absolute; left: 0; top: -5px; }
 
         .section-title { font-size: 1.5em; margin: 50px 0 25px; font-weight: 700; text-transform: uppercase; border-left: 5px solid #ffd21f; padding-left: 15px; }
 
@@ -40,7 +41,7 @@
             transition: 0.3s;
         }
         .project-card:hover { transform: translateY(-5px); border-color: #ffd21f; box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
-        .project-card img { width: 60px; height: 60px; object-fit: contain; margin-bottom: 12px; }
+        .project-card img { width: 65px; height: 65px; object-fit: contain; margin-bottom: 12px; }
         .project-card h3 { margin: 5px 0; font-size: 1em; font-weight: 700; }
         .role { font-size: 0.75em; color: #999; text-transform: uppercase; font-weight: 600; }
 
@@ -56,29 +57,29 @@
         .contacts-section { 
             background: #111; 
             color: #fff; 
-            padding: 50px 20px; 
+            padding: 60px 20px; 
             border-radius: 20px; 
             margin-top: 60px; 
             text-align: center; 
         }
-        .social-icons { display: flex; justify-content: center; gap: 35px; margin: 30px 0; }
-        .social-icons a { color: #fff; font-size: 2.8em; transition: 0.3s; text-decoration: none; }
+        .social-icons { display: flex; justify-content: center; gap: 40px; margin: 30px 0; }
+        .social-icons a { color: #fff; font-size: 3em; transition: 0.3s; text-decoration: none; }
         .social-icons a:hover { color: #ffd21f; transform: scale(1.1); }
         
-        .discord-link { text-decoration: none; color: inherit; }
+        .discord-link { text-decoration: none; display: inline-block; margin-top: 10px; }
         .discord-box { 
             background: #222; 
-            padding: 12px 25px; 
+            padding: 15px 30px; 
             border-radius: 50px; 
-            display: inline-flex; 
+            display: flex; 
             align-items: center;
             font-family: monospace;
             border: 1px solid #333;
-            font-size: 1.1em;
+            font-size: 1.2em;
             color: #eee;
             transition: 0.3s;
         }
-        .discord-link:hover .discord-box { background: #5865F2; border-color: #5865F2; color: #fff; }
+        .discord-link:hover .discord-box { background: #5865F2; border-color: #5865F2; color: #fff; transform: translateY(-3px); }
 
         @media (max-width: 900px) { .projects-grid { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 768px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -99,16 +100,24 @@
     <div class="about-section">
         <h2>About me:</h2>
         <p class="about-text">
-            <strong>SERY2013 | Web3 Ambassador | Content Creator</strong><br>
-            For over a year, I have been creating high-quality content and managing communities on Discord. I am currently managing more than 10 active projects, ensuring their growth and audience engagement. My experience is backed by real cases in my portfolio.
+            <strong>SERY2013 | Web3 Ambassador | Content Creator</strong><br><br>
+            For over a year, I have been creating high-quality content and managing communities on Discord. 
+            I am currently managing more than 10 active projects, ensuring their growth and audience engagement. 
+            My experience is backed by real cases in my portfolio.
         </p>
+        
         <h2>Specialization:</h2>
-        <ul class="spec-list">
-            <li>Discord server management</li>
-            <li>Content creation for Web3 projects</li>
-            <li>Ambassadorship and community management</li>
-        </ul>
-        <p style="margin-top:20px; font-weight: 700;">Stability and results are my top priorities.</p>
+        <div class="spec-container">
+            <ul class="spec-list">
+                <li>Discord server management</li>
+                <li>Content creation for Web3 projects</li>
+                <li>Ambassadorship and community management</li>
+            </ul>
+        </div>
+        
+        <p style="margin-top:20px; font-weight: 700; color: #111; font-size: 1.1em;">
+            Stability and results are my top priorities.
+        </p>
     </div>
 
     <h2 class="section-title">Projects</h2>
@@ -138,16 +147,17 @@
     </div>
 
     <div class="contacts-section">
-        <h2 style="color: #ffd21f;">Contacts</h2>
+        <h2 style="color: #ffd21f; margin-bottom: 30px;">Contacts</h2>
         <div class="social-icons">
-            <a href="mailto:blackbiznft@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="https://x.com/kaye_moni" target="_blank"><i class="fab fa-x-twitter"></i></a>
-            <a href="https://github.com/sery2013" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:blackbiznft@gmail.com" title="Send Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://x.com/kaye_moni" target="_blank" title="My X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://github.com/sery2013" target="_blank" title="My GitHub"><i class="fab fa-github"></i></a>
         </div>
         
-        <a href="https://discordapp.com/users/829735798173728789" target="_blank" class="discord-link">
+        <a href="https://discordapp.com/users/829735798173728789" target="_blank" class="discord-link" title="My Discord Profile">
             <div class="discord-box">
-                <i class="fab fa-discord" style="color: #5865F2; margin-right: 12px;"></i> ID: 829735798173728789
+                <i class="fab fa-discord" style="color: #5865F2; margin-right: 15px; font-size: 1.2em;"></i> 
+                ID: 829735798173728789
             </div>
         </a>
     </div>
