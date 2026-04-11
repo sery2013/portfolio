@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SERY2013 | Web3 Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 0; }
+        .container { max-width: 900px; margin: 40px auto; padding: 20px; }
+        
+        header { text-align: center; background: white; padding: 40px 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .avatar { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 5px solid #ffd21f; }
+        h1 { margin: 20px 0 10px; color: #2c3e50; }
+        .subtitle { font-size: 1.2em; color: #7f8c8d; margin-bottom: 20px; }
+        
+        .section-title { text-align: center; margin: 50px 0 30px; font-size: 1.8em; }
+        
+        /* Сетка проектов (логотипы) */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+        .project-card { background: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.03); transition: 0.3s; border-bottom: 4px solid #ffd21f; }
+        .project-card:hover { transform: translateY(-5px); }
+        .project-card img { width: 70px; margin-bottom: 15px; }
+        .role { font-size: 0.85em; background: #eef2f3; padding: 5px 10px; border-radius: 5px; color: #555; display: inline-block; margin-top: 10px; }
+
+        /* Сетка работ (GIF) */
+        .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .work-item img { width: 100%; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+
+        /* Контакты */
+        .contacts { background: #2c3e50; color: white; padding: 40px 20px; text-align: center; border-radius: 15px; margin-top: 50px; }
+        .social-links { margin-top: 20px; }
+        .social-links a { color: white; font-size: 2em; margin: 0 15px; text-decoration: none; transition: 0.3s; }
+        .social-links a:hover { color: #ffd21f; }
+        .discord-id { margin-top: 15px; font-family: monospace; opacity: 0.8; }
+
+        @media (max-width: 600px) { .works-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <img src="./works/avatar.gif" alt="SERY2013" class="avatar">
+        <h1>Hi, I am SERY2013!</h1>
+        <p class="subtitle">Web3 Ambassador | Content Creator | Digital Artist</p>
+        <p>Более года я создаю высококачественный контент и управляю сообществами. Стабильность и результат — мои приоритеты.</p>
+    </header>
+
+    <h2 class="section-title">My Experience</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <img src="./logo/kash.png" alt="Kash">
+            <h3>Kash Bot</h3>
+            <span class="role">OG KASHER</span>
+        </div>
+        <div class="project-card">
+            <img src="./logo/opengradient.png" alt="OpenGradient">
+            <h3>OpenGradient</h3>
+            <span class="role">Quontent Creator</span>
+        </div>
+        <div class="project-card">
+            <img src="./logo/ritual.png" alt="Ritual">
+            <h3>Ritual</h3>
+            <span class="role">Ritty, Ritty Bitty</span>
+        </div>
+        <div class="project-card">
+            <img src="./logo/rialo.png" alt="Rialo">
+            <h3>Rialo</h3>
+            <span class="role">Club Member</span>
+        </div>
+    </div>
+
+    <h2 class="section-title">Visual Works</h2>
+    <div class="works-grid">
+        <div class="work-item"><img src="./works/work1.gif" alt="Work 1"></div>
+        <div class="work-item"><img src="./works/work2.gif" alt="Work 2"></div>
+        <div class="work-item"><img src="./works/work3.gif" alt="Work 3"></div>
+        <div class="work-item"><img src="./works/work4.gif" alt="Work 4"></div>
+    </div>
+
+    <div class="contacts">
+        <h2>Contacts</h2>
+        <div class="social-links">
+            <a href="mailto:blackbiznft@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://x.com/kaye_moni" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://github.com/sery2013" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        <p class="discord-id">Discord: 829735798173728789</p>
+    </div>
+</div>
+
+</body>
+</html>
