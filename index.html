@@ -11,7 +11,6 @@
         body { 
             font-family: 'Montserrat', sans-serif; 
             margin: 0; padding: 0; line-height: 1.6; min-height: 100vh;
-            /* Заменили розовый на глубокий голубой и стальной */
             background: linear-gradient(-45deg, #e0eafc, #cfdef3, #e6e9f0, #d9e2f1);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
@@ -28,6 +27,37 @@
         
         header { text-align: center; margin-bottom: 50px; }
         
+        /* === СТИЛИ ДЛЯ НОВОГО ЗАГОЛОВКА В РАМКЕ === */
+        .portfolio-banner {
+            max-width: 900px;
+            margin: 0 auto 30px;
+            padding: 15px 30px;
+            text-align: center;
+            
+            /* Тонкая рамка с градиентом */
+            border: 2px solid transparent;
+            border-image: linear-gradient(90deg, transparent, #cfdef3, #ffd21f, #cfdef3, transparent);
+            border-image-slice: 1;
+            
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            
+            transition: all 0.3s ease;
+        }
+        .portfolio-banner h1 {
+            font-size: 2em;
+            margin: 0;
+            color: #1a1a1a;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .portfolio-banner:hover {
+            border-image: linear-gradient(90deg, transparent, #cfdef3, #cfdef3, #ffd21f, transparent);
+            border-image-slice: 1;
+        }
+
         .avatar { 
             width: 150px; height: 150px; 
             border-radius: 50%; 
@@ -38,7 +68,8 @@
             transition: 0.3s;
         }
         
-        h1 { font-size: 2.8em; margin: 0; color: #1a1a1a; font-weight: 800; letter-spacing: -1px; }
+        /* Изменили h1 в header, так как теперь есть главный h1 в баннере */
+        header .intro-text { font-size: 2.8em; margin: 0; color: #1a1a1a; font-weight: 800; letter-spacing: -1px; }
         
         /* === ЧИСТОЕ "ЛЕДЯНОЕ" СТЕКЛО === */
         .glass-gradient {
@@ -46,7 +77,6 @@
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.7);
-            /* Убрали розовые отсветы, оставили только золото и голубой */
             background-image: radial-gradient(at 0% 0%, rgba(255, 210, 31, 0.05) 0px, transparent 50%),
                               radial-gradient(at 100% 100%, rgba(0, 163, 255, 0.05) 0px, transparent 50%);
             box-shadow: 0 10px 30px rgba(0,0,0,0.02);
@@ -164,8 +194,12 @@
 
 <div class="container">
     <header>
+        <div class="portfolio-banner">
+            <h1>Sery2013 portfolio</h1>
+        </div>
+
         <img src="https://github.com/sery2013/portfolio/blob/main/avatar/avatar.jpg?raw=true" alt="SERY2013" class="avatar">
-        <h1>Hi, I am SERY2013!</h1>
+        <div class="intro-text">Hi, I am SERY2013!</div>
     </header>
 
     <div class="about-section glass-gradient">
