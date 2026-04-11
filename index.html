@@ -7,40 +7,56 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* === ДИНАМИЧЕСКИЙ ГРАДИЕНТНЫЙ ФОН === */
         body { 
             font-family: 'Montserrat', sans-serif; 
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0; padding: 0; line-height: 1.6; min-height: 100vh;
+            background: linear-gradient(-45deg, #f1f2f6, #c3cfe2, #fff1eb, #e6e9f0);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             color: #2d3436; 
-            margin: 0; 
-            padding: 0; 
-            line-height: 1.6;
-            min-height: 100vh;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
         
         header { text-align: center; margin-bottom: 50px; }
+        
         .avatar { 
             width: 150px; height: 150px; 
             border-radius: 50%; 
-            border: 5px solid #fff; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
+            border: 5px solid rgba(255, 255, 255, 0.9); 
+            box-shadow: 0 10px 25px rgba(88, 101, 242, 0.15);
             margin-bottom: 20px;
             object-fit: cover;
+            transition: 0.3s;
         }
         
         h1 { font-size: 2.8em; margin: 0; color: #1a1a1a; font-weight: 800; letter-spacing: -1px; }
         
+        /* === ОБЩИЙ КЛАСС ГРАДИЕНТНОГО СТЕКЛА === */
+        .glass-gradient {
+            background: rgba(255, 255, 255, 0.45); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            background-image: radial-gradient(at 0% 0%, rgba(255, 210, 31, 0.08) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(88, 101, 242, 0.08) 0px, transparent 50%);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
         .about-section { 
-            background: #ffffff; 
             padding: 40px; 
             border-radius: 24px; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
             margin-bottom: 60px;
-            border: 1px solid rgba(255,255,255,0.7);
             text-align: center;
         }
-        .about-section h2 { font-size: 1.4em; color: #1a1a1a; margin-bottom: 15px; text-transform: uppercase; font-weight: 700; }
         .about-text { font-size: 1.1em; color: #57606f; }
         
         .spec-list { list-style: none; padding: 0; display: inline-block; text-align: left; margin: 20px 0; }
@@ -65,16 +81,18 @@
             grid-template-columns: repeat(4, 1fr); 
             gap: 20px; 
         }
+        
         .project-card { 
-            background: #fff; 
             padding: 30px 15px; 
             border-radius: 20px; 
             text-align: center; 
-            border: 1px solid #e1e8ed;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-            transition: all 0.3s ease;
         }
-        .project-card:hover { transform: translateY(-7px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); border-color: #ffd21f; }
+        .project-card:hover { 
+            transform: translateY(-7px); 
+            background: rgba(255, 255, 255, 0.7);
+            border-color: #ffd21f; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
         .project-card img { width: 65px; height: 65px; object-fit: contain; margin-bottom: 15px; }
         .project-card h3 { margin: 10px 0 8px; font-size: 1.1em; font-weight: 700; color: #1a1a1a; }
         
@@ -83,30 +101,33 @@
             color: #57606f; 
             text-transform: uppercase; 
             font-weight: 700; 
-            border: 1.5px solid #ced6e0; 
+            border: 1.5px solid rgba(206, 214, 224, 0.8); 
             padding: 4px 12px; 
             border-radius: 8px; 
             display: inline-block;
-            background: #f1f2f6;
+            background: rgba(255,255,255,0.8);
             letter-spacing: 0.5px;
         }
 
-        .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .works-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 25px; 
+            padding: 25px; 
+            border-radius: 30px;
+        }
         .work-item img { 
-            width: 100%; border-radius: 20px; border: 5px solid #fff;
-            box-shadow: 0 12px 25px rgba(0,0,0,0.08); display: block; 
+            width: 100%; border-radius: 20px; border: 4px solid #fff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06); display: block; 
             transition: 0.3s;
         }
         .work-item img:hover { transform: scale(1.02); }
 
         .contacts-section { 
-            background: rgba(255, 255, 255, 0.6); 
-            backdrop-filter: blur(10px);
             padding: 60px 20px; 
-            border-radius: 30px; 
+            border-radius: 35px; 
             margin-top: 80px; 
             text-align: center; 
-            border: 1px solid rgba(255,255,255,0.8);
         }
         .contacts-section h2 { font-size: 1.8em; color: #1a1a1a; font-weight: 800; text-transform: uppercase; margin-bottom: 30px; }
         
@@ -114,12 +135,11 @@
         .social-icons a { color: #2d3436; font-size: 3.2em; transition: all 0.3s ease; }
         .social-icons a:hover { color: #ffd21f; transform: translateY(-5px); }
         
-        .discord-link { text-decoration: none; display: inline-block; margin-top: 15px; }
         .discord-box { 
             background: #ffffff; 
             padding: 18px 40px; 
             border-radius: 50px; 
-            display: flex; 
+            display: inline-flex; 
             align-items: center;
             border: 2px solid #e1e8ed;
             font-size: 1.25em;
@@ -146,7 +166,7 @@
         <h1>Hi, I am SERY2013!</h1>
     </header>
 
-    <div class="about-section">
+    <div class="about-section glass-gradient">
         <h2>About me:</h2>
         <p class="about-text">
             <strong>SERY2013 | Web3 Ambassador | Content Creator</strong><br><br>
@@ -164,31 +184,30 @@
 
     <h2 class="section-title">Experience</h2>
     <div class="projects-grid">
-        <div class="project-card"><img src="https://github.com/sery2013/portfolio/blob/main/avatar/kashbot.png?raw=true"><h3>Kash Bot</h3><span class="role">OG KASHER</span></div>
-        <div class="project-card"><img src="https://github.com/sery2013/portfolio/blob/main/avatar/pred.png?raw=true"><h3>Pred</h3><span class="role">Credible</span></div>
-        <div class="project-card"><img src="https://github.com/sery2013/portfolio/blob/main/avatar/ritual.png?raw=true"><h3>Ritual</h3><span class="role">Ritty Bitty</span></div>
-        <div class="project-card"><img src="https://github.com/sery2013/portfolio/blob/main/avatar/rialo.png?raw=true"><h3>Rialo</h3><span class="role">Member</span></div>
+        <div class="project-card glass-gradient"><img src="https://github.com/sery2013/portfolio/blob/main/avatar/kashbot.png?raw=true"><h3>Kash Bot</h3><span class="role">OG KASHER</span></div>
+        <div class="project-card glass-gradient"><img src="https://github.com/sery2013/portfolio/blob/main/avatar/pred.png?raw=true"><h3>Pred</h3><span class="role">Credible</span></div>
+        <div class="project-card glass-gradient"><img src="https://github.com/sery2013/portfolio/blob/main/avatar/ritual.png?raw=true"><h3>Ritual</h3><span class="role">Ritty Bitty</span></div>
+        <div class="project-card glass-gradient"><img src="https://github.com/sery2013/portfolio/blob/main/avatar/rialo.png?raw=true"><h3>Rialo</h3><span class="role">Member</span></div>
         
-        <div class="project-card"><img src="https://github.com/sery2013/portfolio/blob/main/avatar/fermah.png?raw=true"><h3>Fermah</h3><span class="role">Contributor,OG</span></div>
-        <div class="project-card"><img src="https://github.com/sery2013/portfolio/blob/main/avatar/neura.png?raw=true"><h3>Neura</h3><span class="role">Native</span></div>
-        <div class="project-card"><img src="https://github.com/sery2013/portfolio/blob/main/avatar/oro.png?raw=true"><h3>Oro</h3><span class="role"> Tier 2,Silver </span></div>
-        <div class="project-card"><img src="https://github.com/sery2013/portfolio/blob/main/avatar/bulk.png?raw=true"><h3>Bulk Trade</h3><span class="role">No Role</span></div>
+        <div class="project-card glass-gradient"><img src="https://github.com/sery2013/portfolio/blob/main/avatar/fermah.png?raw=true"><h3>Fermah</h3><span class="role">Contributor,OG</span></div>
+        <div class="project-card glass-gradient"><img src="https://github.com/sery2013/portfolio/blob/main/avatar/neura.png?raw=true"><h3>Neura</h3><span class="role">Native</span></div>
+        <div class="project-card glass-gradient"><img src="https://github.com/sery2013/portfolio/blob/main/avatar/oro.png?raw=true"><h3>Oro</h3><span class="role"> Tier 2,Silver </span></div>
+        <div class="project-card glass-gradient"><img src="https://github.com/sery2013/portfolio/blob/main/avatar/bulk.png?raw=true"><h3>Bulk Trade</h3><span class="role">No Role</span></div>
         
-        <div class="project-card"><img src="https://github.com/sery2013/portfolio/blob/main/avatar/oxyz.png?raw=true"><h3>O.xyz</h3><span class="role">Contributor</span></div>
-        <div class="project-card"><img src="https://github.com/sery2013/portfolio/blob/main/avatar/reddio.png?raw=true"><h3>Reddio</h3><span class="role">Contributor</span></div>
-        <div class="project-card"><img src="https://github.com/sery2013/portfolio/blob/main/avatar/kast.png?raw=true"><h3>Кast</h3><span class="role">No Role</span></div>
-      
+        <div class="project-card glass-gradient"><img src="https://github.com/sery2013/portfolio/blob/main/avatar/oxyz.png?raw=true"><h3>O.xyz</h3><span class="role">Contributor</span></div>
+        <div class="project-card glass-gradient"><img src="https://github.com/sery2013/portfolio/blob/main/avatar/reddio.png?raw=true"><h3>Reddio</h3><span class="role">Contributor</span></div>
+        <div class="project-card glass-gradient"><img src="https://github.com/sery2013/portfolio/blob/main/avatar/kast.png?raw=true"><h3>Кast</h3><span class="role">No Role</span></div>
     </div>
 
     <h2 class="section-title">Portfolio Works</h2>
-    <div class="works-grid">
+    <div class="works-grid glass-gradient">
         <div class="work-item"><img src="works/1.gif"></div>
         <div class="work-item"><img src="works/2.gif"></div>
         <div class="work-item"><img src="works/3.gif"></div>
         <div class="work-item"><img src="works/4.gif"></div>
     </div>
 
-    <div class="contacts-section">
+    <div class="contacts-section glass-gradient">
         <h2>Get in touch</h2>
         <div class="social-icons">
             <a href="mailto:blackbiznft@gmail.com"><i class="fas fa-envelope"></i></a>
