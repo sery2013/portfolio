@@ -3,216 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SERY2013 | Web3 Portfolio</title>
+    <title>SERY2013 | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* --- Основные стили и шикарный градиентный фон --- */
+        /* Яркий, чистый градиентный фон */
         body { 
             font-family: 'Montserrat', sans-serif; 
-            background: radial-gradient(circle at center, #1a1a2e 0%, #0d0d15 100%);
-            color: #fff; 
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #2d3436; 
             margin: 0; 
             padding: 0; 
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        /* Добавляем легкое свечение на фон */
-        body::before {
-            content: '';
-            position: fixed;
-            top: -10%; left: -10%;
-            width: 120%; height: 120%;
-            background: radial-gradient(circle at 10% 10%, rgba(255, 210, 31, 0.05) 0%, rgba(0,0,0,0) 50%),
-                        radial-gradient(circle at 90% 90%, rgba(88, 101, 242, 0.05) 0%, rgba(0,0,0,0) 50%);
-            z-index: -1;
-        }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
         
-        /* --- Шапка --- */
-        header { text-align: center; margin-bottom: 60px; position: relative; }
+        header { text-align: center; margin-bottom: 50px; }
         .avatar { 
-            width: 160px; height: 160px; 
+            width: 150px; height: 150px; 
             border-radius: 50%; 
-            border: 4px solid #ffd21f; 
-            box-shadow: 0 0 30px rgba(255, 210, 31, 0.3); 
-            margin-bottom: 25px;
-            transition: 0.5s ease;
-        }
-        .avatar:hover { transform: scale(1.05) rotate(5deg); box-shadow: 0 0 50px rgba(255, 210, 31, 0.5); }
-        
-        h1 { 
-            font-size: 3em; 
-            margin: 0; 
-            font-weight: 800; 
-            letter-spacing: -2px;
-            background: linear-gradient(90deg, #fff 0%, #ffd21f 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            border: 5px solid #fff; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+            margin-bottom: 20px;
         }
         
-        /* --- Блок "About Me" в стиле Glassmorphism --- */
+        h1 { font-size: 2.8em; margin: 0; color: #1a1a1a; font-weight: 800; }
+        
+        /* Белый контрастный блок описания */
         .about-section { 
-            max-width: 900px; 
-            margin: 0 auto 60px; 
-            background: rgba(255, 255, 255, 0.03); 
+            background: #ffffff; 
             padding: 40px; 
-            border-radius: 24px; 
-            border: 1px solid rgba(255, 255, 255, 0.05); 
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            margin-bottom: 60px;
+            border: 1px solid rgba(0,0,0,0.05);
+            text-align: center;
         }
-        .about-section h2 { font-size: 1.4em; color: #ffd21f; margin-bottom: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-        .about-text { font-size: 1.1em; color: rgba(255,255,255,0.8); margin-bottom: 30px; text-align: center; }
-        .about-text strong { color: #fff; font-weight: 700; }
+        .about-section h2 { font-size: 1.4em; color: #1a1a1a; margin-bottom: 15px; text-transform: uppercase; }
+        .about-text { font-size: 1.1em; color: #636e72; }
         
-        .spec-container { display: inline-block; text-align: left; margin-bottom: 25px; }
-        .spec-list { list-style: none; padding: 0; margin: 0; }
-        .spec-list li { margin-bottom: 12px; font-size: 1.1em; position: relative; padding-left: 30px; color: rgba(255,255,255,0.9); }
-        /* Красивые кастомные маркеры */
-        .spec-list li::before { 
-            content: "\f00c"; 
-            font-family: "Font Awesome 6 Free"; 
-            font-weight: 900; 
-            color: #ffd21f; 
-            position: absolute; 
-            left: 0; top: 2px; 
-            font-size: 0.9em;
-        }
+        .spec-list { list-style: none; padding: 0; display: inline-block; text-align: left; margin: 20px 0; }
+        .spec-list li { margin-bottom: 10px; font-weight: 600; padding-left: 30px; position: relative; }
+        .spec-list li::before { content: "✔"; color: #ffd21f; position: absolute; left: 0; font-size: 1.2em; }
 
-        .highlight-p { margin-top:30px; font-weight: 700; color: #fff; font-size: 1.2em; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* --- Заголовки секций с неоновым подчеркиванием --- */
+        /* Заголовки с четким акцентом */
         .section-title { 
-            font-size: 1.8em; 
-            margin: 60px 0 35px; 
+            font-size: 1.6em; 
+            margin: 40px 0 30px; 
             font-weight: 800; 
             text-transform: uppercase; 
-            letter-spacing: 2px; 
-            position: relative;
-            display: inline-block;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
         }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px; left: 0;
-            width: 100%; height: 4px;
-            background: linear-gradient(90deg, #ffd21f, rgba(255,210,31,0));
-            border-radius: 2px;
-            box-shadow: 0 0 10px #ffd21f;
-        }
+        .section-title::after { content: ""; flex: 1; height: 2px; background: #ffd21f; margin-left: 20px; opacity: 0.5; }
 
-        /* --- Сетка проектов (4 колонки) - Премиум вид --- */
+        /* Сетка проектов (4 колонки) — Четкие границы */
         .projects-grid { 
             display: grid; 
             grid-template-columns: repeat(4, 1fr); 
             gap: 20px; 
         }
         .project-card { 
-            background: rgba(255, 255, 255, 0.02); 
+            background: #fff; 
             padding: 30px 15px; 
             border-radius: 16px; 
             text-align: center; 
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
+            border: 1px solid #e1e8ed;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: 0.3s ease;
         }
-        /* Эффект наведения со свечением */
-        .project-card:hover { 
-            transform: translateY(-10px); 
-            background: rgba(255, 255, 255, 0.04);
-            border-color: rgba(255, 210, 31, 0.3); 
-            box-shadow: 0 15px 40px rgba(255, 210, 31, 0.15); 
-        }
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
-            transition: 0.5s;
-        }
-        .project-card:hover::before { left: 100%; }
-
-        .project-card img { width: 70px; height: 70px; object-fit: contain; margin-bottom: 15px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.1)); }
-        .project-card h3 { margin: 10px 0 5px; font-size: 1.1em; font-weight: 700; color: #fff; }
+        .project-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: #ffd21f; }
+        .project-card img { width: 60px; height: 60px; object-fit: contain; margin-bottom: 15px; }
+        .project-card h3 { margin: 10px 0 8px; font-size: 1.1em; font-weight: 700; color: #2d3436; }
         
-        /* Роли в тонкой рамке (стиль из скрина) */
+        /* Роли в рамке как на скрине — Высокий контраст */
         .role { 
             font-size: 0.75em; 
-            color: #ffd21f; 
+            color: #636e72; 
             text-transform: uppercase; 
-            font-weight: 600; 
-            border: 1px solid rgba(255, 210, 31, 0.3); 
+            font-weight: 700; 
+            border: 1.5px solid #d1d8e0; 
             padding: 4px 10px; 
             border-radius: 6px; 
             display: inline-block;
-            margin-top: 8px;
-            letter-spacing: 1px;
-            background: rgba(255, 210, 31, 0.05);
+            background: #f8f9fa;
         }
 
-        /* --- Сетка работ (2 колонки) --- */
-        .works-grid { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 25px; 
+        /* Сетка работ (2 колонки) */
+        .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .work-item img { 
+            width: 100%; border-radius: 16px; border: 4px solid #fff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); display: block; 
         }
-        .work-item { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: 0.3s; }
-        .work-item:hover { transform: scale(1.02); box-shadow: 0 15px 50px rgba(0,0,0,0.5); border-color: rgba(255,210,31,0.2); }
-        .work-item img { width: 100%; display: block; transition: 0.5s ease; }
-        .work-item:hover img { transform: scale(1.05); }
 
-        /* --- Контакты - Футуристичный вид --- */
+        /* Футер Контактов */
         .contacts-section { 
-            background: rgba(0, 0, 0, 0.3); 
+            background: #1a1a1a; 
+            color: #fff; 
             padding: 60px 20px; 
-            border-radius: 24px; 
+            border-radius: 30px; 
             margin-top: 80px; 
             text-align: center; 
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            position: relative;
         }
-        .contacts-section h2 { font-size: 2em; color: #fff; font-weight: 800; text-transform: uppercase; margin-bottom: 40px; }
+        .social-icons { display: flex; justify-content: center; gap: 40px; margin: 30px 0; }
+        .social-icons a { color: #fff; font-size: 3em; transition: 0.3s; }
+        .social-icons a:hover { color: #ffd21f; transform: scale(1.1); }
         
-        .social-icons { display: flex; justify-content: center; gap: 40px; margin: 30px 0 50px; }
-        .social-icons a { color: rgba(255,255,255,0.6); font-size: 3.2em; transition: 0.3s ease; text-decoration: none; position: relative; }
-        .social-icons a:hover { color: #ffd21f; transform: translateY(-5px); filter: drop-shadow(0 0 15px #ffd21f); }
-        
-        /* Кликабельный Дискорд */
         .discord-link { text-decoration: none; display: inline-block; margin-top: 10px; }
         .discord-box { 
-            background: rgba(88, 101, 242, 0.1); 
-            padding: 18px 35px; 
+            background: #2d3436; 
+            padding: 15px 35px; 
             border-radius: 50px; 
             display: flex; 
             align-items: center;
-            font-family: monospace;
-            border: 1px solid rgba(88, 101, 242, 0.2);
-            font-size: 1.3em;
+            border: 1px solid #444;
+            font-size: 1.2em;
             color: #fff;
             transition: 0.3s;
-            box-shadow: 0 0 15px rgba(88, 101, 242, 0.1);
         }
-        .discord-link:hover .discord-box { 
-            background: rgba(88, 101, 242, 0.2); 
-            border-color: rgba(88, 101, 242, 0.5); 
-            transform: translateY(-3px); 
-            box-shadow: 0 0 30px rgba(88, 101, 242, 0.3); 
-        }
+        .discord-link:hover .discord-box { background: #5865F2; border-color: #5865F2; }
 
-        /* --- Адаптивность --- */
-        @media (max-width: 1000px) { .projects-grid { grid-template-columns: repeat(3, 1fr); } h1 { font-size: 2.5em; } }
-        @media (max-width: 768px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } .works-grid { grid-template-columns: 1fr; } .container { padding: 40px 15px; } }
-        @media (max-width: 600px) { 
-            .projects-grid { grid-template-columns: 1fr; } 
-            .social-icons { gap: 25px; font-size: 0.8em; }
-            .discord-box { font-size: 1em; padding: 12px 20px; }
-            .about-section { padding: 25px; }
-        }
+        /* Адаптивность */
+        @media (max-width: 900px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .projects-grid { grid-template-columns: 1fr; } .works-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -220,51 +135,44 @@
 <div class="container">
     <header>
         <img src="./works/avatar.gif" alt="SERY2013" class="avatar">
-        <h1>SERY2013</h1>
+        <h1>Hi, I am SERY2013!</h1>
     </header>
 
     <div class="about-section">
-        <h2>About me</h2>
+        <h2>About me:</h2>
         <p class="about-text">
             <strong>SERY2013 | Web3 Ambassador | Content Creator</strong><br><br>
             For over a year, I have been creating high-quality content and managing communities on Discord. 
             I am currently managing more than 10 active projects, ensuring their growth and audience engagement. 
             My experience is backed by real cases in my portfolio.
         </p>
-        
-        <h2>Specialization</h2>
-        <div class="spec-container">
-            <ul class="spec-list">
-                <li>Discord server management</li>
-                <li>Content creation for Web3 projects</li>
-                <li>Ambassadorship and community management</li>
-            </ul>
-        </div>
-        
-        <p class="highlight-p">
-            Stability and results are my top priorities.
-        </p>
+        <ul class="spec-list">
+            <li>Discord server management</li>
+            <li>Content creation for Web3 projects</li>
+            <li>Ambassadorship and community management</li>
+        </ul>
+        <p style="font-weight: 800; color: #1a1a1a; margin-top: 10px;">Stability and results are my top priorities.</p>
     </div>
 
-    <center><h2 class="section-title">Experience</h2></center>
+    <h2 class="section-title">Experience</h2>
     <div class="projects-grid">
-        <div class="project-card"><img src="./logo/kash.png"><h3>Kash Bot</h3><p class="role">OG KASHER</p></div>
-        <div class="project-card"><img src="./logo/opengradient.png"><h3>OpenGradient</h3><p class="role">Creator</p></div>
-        <div class="project-card"><img src="./logo/ritual.png"><h3>Ritual</h3><p class="role">Ritty Bitty</p></div>
-        <div class="project-card"><img src="./logo/rialo.png"><h3>Rialo</h3><p class="role">Member</p></div>
+        <div class="project-card"><img src="./logo/kash.png"><h3>Kash Bot</h3><span class="role">OG KASHER</span></div>
+        <div class="project-card"><img src="./logo/opengradient.png"><h3>OpenGradient</h3><span class="role">Creator</span></div>
+        <div class="project-card"><img src="./logo/ritual.png"><h3>Ritual</h3><span class="role">Ritty Bitty</span></div>
+        <div class="project-card"><img src="./logo/rialo.png"><h3>Rialo</h3><span class="role">Member</span></div>
         
-        <div class="project-card"><img src="./logo/fermat.png"><h3>Fermat</h3><p class="role">Contributor</p></div>
-        <div class="project-card"><img src="./logo/neura.png"><h3>Neura</h3><p class="role">Member</p></div>
-        <div class="project-card"><img src="./logo/oro.png"><h3>Oro</h3><p class="role">Contributor</p></div>
-        <div class="project-card"><img src="./logo/bulk.png"><h3>Bulk Trade</h3><p class="role">Partner</p></div>
+        <div class="project-card"><img src="./logo/fermat.png"><h3>Fermat</h3><span class="role">Contributor</span></div>
+        <div class="project-card"><img src="./logo/neura.png"><h3>Neura</h3><span class="role">Member</span></div>
+        <div class="project-card"><img src="./logo/oro.png"><h3>Oro</h3><span class="role">Contributor</span></div>
+        <div class="project-card"><img src="./logo/bulk.png"><h3>Bulk Trade</h3><span class="role">Partner</span></div>
         
-        <div class="project-card"><img src="./logo/p9.png"><h3>Project 9</h3><p class="role">Role</p></div>
-        <div class="project-card"><img src="./logo/p10.png"><h3>Project 10</h3><p class="role">Role</p></div>
-        <div class="project-card"><img src="./logo/p11.png"><h3>Project 11</h3><p class="role">Role</p></div>
-        <div class="project-card"><img src="./logo/p12.png"><h3>Project 12</h3><p class="role">Role</p></div>
+        <div class="project-card"><img src="./logo/p9.png"><h3>Project 9</h3><span class="role">Role</span></div>
+        <div class="project-card"><img src="./logo/p10.png"><h3>Project 10</h3><span class="role">Role</span></div>
+        <div class="project-card"><img src="./logo/p11.png"><h3>Project 11</h3><span class="role">Role</span></div>
+        <div class="project-card"><img src="./logo/p12.png"><h3>Project 12</h3><span class="role">Role</span></div>
     </div>
 
-    <center><h2 class="section-title">Works</h2></center>
+    <h2 class="section-title">Portfolio Works</h2>
     <div class="works-grid">
         <div class="work-item"><img src="./works/work1.gif"></div>
         <div class="work-item"><img src="./works/work2.gif"></div>
@@ -273,17 +181,15 @@
     </div>
 
     <div class="contacts-section">
-        <h2>Connect</h2>
+        <h2 style="color: #ffd21f;">Contacts</h2>
         <div class="social-icons">
-            <a href="mailto:blackbiznft@gmail.com" title="Send Email"><i class="fas fa-envelope"></i></a>
-            <a href="https://x.com/kaye_moni" target="_blank" title="My X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-            <a href="https://github.com/sery2013" target="_blank" title="My GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:blackbiznft@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://x.com/kaye_moni" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://github.com/sery2013" target="_blank"><i class="fab fa-github"></i></a>
         </div>
-        
-        <a href="https://discordapp.com/users/829735798173728789" target="_blank" class="discord-link" title="My Discord Profile">
+        <a href="https://discordapp.com/users/829735798173728789" target="_blank" class="discord-link">
             <div class="discord-box">
-                <i class="fab fa-discord" style="color: #5865F2; margin-right: 18px; font-size: 1.3em;"></i> 
-                ID: 829735798173728789
+                <i class="fab fa-discord" style="color: #5865F2; margin-right: 15px;"></i> ID: 829735798173728789
             </div>
         </a>
     </div>
