@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Общий светлый технологичный фон */
         body { 
             font-family: 'Montserrat', sans-serif; 
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -27,11 +26,11 @@
             border: 5px solid #fff; 
             box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
             margin-bottom: 20px;
+            object-fit: cover;
         }
         
         h1 { font-size: 2.8em; margin: 0; color: #1a1a1a; font-weight: 800; letter-spacing: -1px; }
         
-        /* Блок "About Me" */
         .about-section { 
             background: #ffffff; 
             padding: 40px; 
@@ -50,7 +49,6 @@
 
         .highlight-p { font-weight: 800; color: #1a1a1a; margin-top: 20px; font-size: 1.1em; }
 
-        /* Заголовки секций */
         .section-title { 
             font-size: 1.6em; 
             margin: 40px 0 30px; 
@@ -62,7 +60,6 @@
         }
         .section-title::after { content: ""; flex: 1; height: 3px; background: #ffd21f; margin-left: 20px; border-radius: 2px; }
 
-        /* Сетка проектов (4 колонки) */
         .projects-grid { 
             display: grid; 
             grid-template-columns: repeat(4, 1fr); 
@@ -81,7 +78,6 @@
         .project-card img { width: 65px; height: 65px; object-fit: contain; margin-bottom: 15px; }
         .project-card h3 { margin: 10px 0 8px; font-size: 1.1em; font-weight: 700; color: #1a1a1a; }
         
-        /* Рамки ролей */
         .role { 
             font-size: 0.75em; 
             color: #57606f; 
@@ -95,7 +91,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Портфолио (2 колонки) */
         .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
         .work-item img { 
             width: 100%; border-radius: 20px; border: 5px solid #fff;
@@ -104,7 +99,6 @@
         }
         .work-item img:hover { transform: scale(1.02); }
 
-        /* ОБНОВЛЕННЫЙ БЛОК КОНТАКТОВ (В ТОН САЙТА) */
         .contacts-section { 
             background: rgba(255, 255, 255, 0.6); 
             backdrop-filter: blur(10px);
@@ -113,7 +107,6 @@
             margin-top: 80px; 
             text-align: center; 
             border: 1px solid rgba(255,255,255,0.8);
-            box-shadow: 0 -10px 30px rgba(0,0,0,0.02);
         }
         .contacts-section h2 { font-size: 1.8em; color: #1a1a1a; font-weight: 800; text-transform: uppercase; margin-bottom: 30px; }
         
@@ -134,30 +127,22 @@
             font-family: monospace;
             font-weight: 700;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         }
         .discord-link:hover .discord-box { 
             border-color: #5865F2; 
             color: #5865F2; 
-            box-shadow: 0 10px 20px rgba(88, 101, 242, 0.15);
             transform: translateY(-2px);
         }
 
-        /* Адаптивность */
         @media (max-width: 900px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 600px) { 
-            .projects-grid { grid-template-columns: 1fr; } 
-            .works-grid { grid-template-columns: 1fr; }
-            .social-icons { gap: 30px; }
-            .social-icons a { font-size: 2.5em; }
-        }
+        @media (max-width: 600px) { .projects-grid { grid-template-columns: 1fr; } .works-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <img src="./works/avatar.gif" alt="SERY2013" class="avatar">
+        <img src="avatar.gif" alt="SERY2013" class="avatar">
         <h1>Hi, I am SERY2013!</h1>
     </header>
 
@@ -179,42 +164,40 @@
 
     <h2 class="section-title">Experience</h2>
     <div class="projects-grid">
-        <div class="project-card"><img src="./logo/kash.png"><h3>Kash Bot</h3><span class="role">OG KASHER</span></div>
-        <div class="project-card"><img src="./logo/opengradient.png"><h3>OpenGradient</h3><span class="role">Creator</span></div>
-        <div class="project-card"><img src="./logo/ritual.png"><h3>Ritual</h3><span class="role">Ritty Bitty</span></div>
-        <div class="project-card"><img src="./logo/rialo.png"><h3>Rialo</h3><span class="role">Member</span></div>
+        <div class="project-card"><img src="logo/kash.png"><h3>Kash Bot</h3><span class="role">OG KASHER</span></div>
+        <div class="project-card"><img src="logo/opengradient.png"><h3>OpenGradient</h3><span class="role">Creator</span></div>
+        <div class="project-card"><img src="logo/ritual.png"><h3>Ritual</h3><span class="role">Ritty Bitty</span></div>
+        <div class="project-card"><img src="logo/riolo.png"><h3>Rialo</h3><span class="role">Member</span></div>
         
-        <div class="project-card"><img src="./logo/fermat.png"><h3>Fermat</h3><span class="role">Contributor</span></div>
-        <div class="project-card"><img src="./logo/neura.png"><h3>Neura</h3><span class="role">Member</span></div>
-        <div class="project-card"><img src="./logo/oro.png"><h3>Oro</h3><span class="role">Contributor</span></div>
-        <div class="project-card"><img src="./logo/bulk.png"><h3>Bulk Trade</h3><span class="role">Partner</span></div>
+        <div class="project-card"><img src="logo/fermat.png"><h3>Fermat</h3><span class="role">Contributor</span></div>
+        <div class="project-card"><img src="logo/neura.png"><h3>Neura</h3><span class="role">Member</span></div>
+        <div class="project-card"><img src="logo/oro.png"><h3>Oro</h3><span class="role">Contributor</span></div>
+        <div class="project-card"><img src="logo/bulk.png"><h3>Bulk Trade</h3><span class="role">Partner</span></div>
         
-        <div class="project-card"><img src="./logo/p9.png"><h3>Project 9</h3><span class="role">Role</span></div>
-        <div class="project-card"><img src="./logo/p10.png"><h3>Project 10</h3><span class="role">Role</span></div>
-        <div class="project-card"><img src="./logo/p11.png"><h3>Project 11</h3><span class="role">Role</span></div>
-        <div class="project-card"><img src="./logo/p12.png"><h3>Project 12</h3><span class="role">Role</span></div>
+        <div class="project-card"><img src="logo/initia.png"><h3>Initia</h3><span class="role">Member</span></div>
+        <div class="project-card"><img src="logo/movement.png"><h3>Movement</h3><span class="role">Member</span></div>
+        <div class="project-card"><img src="logo/p11.png"><h3>Project 11</h3><span class="role">Role</span></div>
+        <div class="project-card"><img src="logo/p12.png"><h3>Project 12</h3><span class="role">Role</span></div>
     </div>
 
     <h2 class="section-title">Portfolio Works</h2>
     <div class="works-grid">
-        <div class="work-item"><img src="./works/work1.gif"></div>
-        <div class="work-item"><img src="./works/work2.gif"></div>
-        <div class="work-item"><img src="./works/work3.gif"></div>
-        <div class="work-item"><img src="./works/work4.gif"></div>
+        <div class="work-item"><img src="works/1.gif"></div>
+        <div class="work-item"><img src="works/2.gif"></div>
+        <div class="work-item"><img src="works/3.gif"></div>
+        <div class="work-item"><img src="works/4.gif"></div>
     </div>
 
     <div class="contacts-section">
         <h2>Get in touch</h2>
         <div class="social-icons">
-            <a href="mailto:blackbiznft@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-            <a href="https://x.com/kaye_moni" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-            <a href="https://github.com/sery2013" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:blackbiznft@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://x.com/kaye_moni" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://github.com/sery2013" target="_blank"><i class="fab fa-github"></i></a>
         </div>
-        
         <a href="https://discordapp.com/users/829735798173728789" target="_blank" class="discord-link">
             <div class="discord-box">
-                <i class="fab fa-discord" style="color: #5865F2; margin-right: 15px; font-size: 1.2em;"></i> 
-                ID: 829735798173728789
+                <i class="fab fa-discord" style="color: #5865F2; margin-right: 15px;"></i> ID: 829735798173728789
             </div>
         </a>
     </div>
